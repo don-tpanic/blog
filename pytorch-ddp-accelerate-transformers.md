@@ -259,8 +259,8 @@ def train_ddp_accelerate():
     optimizer = optim.AdamW(model.parameters(), lr=1e-3)
 
     # Send everything through `accelerator.prepare`
-    train_loader, test_loader, model, optimizer = accelerator.prepare(
-        train_loader, test_loader, model, optimizer
+    train_loader, model, optimizer = accelerator.prepare(
+        train_loader, model, optimizer
     )
 
     # Train for a single epoch
